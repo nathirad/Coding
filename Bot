@@ -1,0 +1,55 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+# กำหนด Path สำหรับ WebDriver
+driver_path = '/path/to/chromedriver'
+driver = webdriver.Chrome(driver_path)
+
+# เปิดเว็บไซต์
+driver.get('https://www.example.com')
+
+# ทำการล็อกอิน (ถ้าจำเป็น)
+username = driver.find_element(By.ID, 'username_field')
+password = driver.find_element(By.ID, 'password_field')
+username.send_keys('your_username')
+password.send_keys('your_password')
+driver.find_element(By.ID, 'login_button').click()
+
+# รอให้หน้าเว็บโหลดเสร็จ
+time.sleep(3)
+
+# ค้นหาสินค้าและเพิ่มไปยังตะกร้า
+search_box = driver.find_element(By.ID, 'search_box')
+search_box.send_keys('product_name')
+search_box.send_keys(Keys.RETURN)
+
+# รอให้ผลการค้นหาแสดงขึ้น
+time.sleep(3)
+
+# เลือกสินค้า
+product = driver.find_element(By.XPATH, 'xpath_to_product')
+product.click()
+
+# เพิ่มสินค้าไปยังตะกร้า
+add_to_cart = driver.find_element(By.ID, 'add_to_cart_button')
+add_to_cart.click()
+
+# ไปยังหน้าตะกร้า
+driver.get('https://www.example.com/cart')
+
+# กรอกข้อมูลการสั่งซื้อ
+name = driver.find_element(By.ID, 'name_field')
+address = driver.find_element(By.ID, 'address_field')
+payment = driver.find_element(By.ID, 'payment_field')
+name.send_keys('your_name')
+address.send_keys('your_address')
+payment.send_keys('your_payment_details')
+
+# คลิกปุ่มสั่งซื้อ
+purchase_button = driver.find_element(By.ID, 'purchase_button')
+purchase_button.click()
+
+# ปิดเบราว์เซอร์
+driver.quit()

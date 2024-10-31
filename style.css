@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace; 
+    background-image: url(image/alola.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 4px;
+    right: 5px;
+    width: 100%;
+    padding: 20px 100px;
+    background: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+
+} 
+li {
+    float: right;
+  }
+  
+li a {
+    display: block;
+    padding: 8px;
+  }
+.logo {
+    font-size: 32px;
+    color: azure;
+    text-decoration: none;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.navbar {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style-type: none; /* เพิ่มการลบรายการของ navbar */
+    display: flex; /* เพิ่มการแสดงผลเป็น flex */
+}
+
+.navbar a {
+    position: relative;
+    font-size: 1vw;
+    color: azure;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.home{
+    height: 100vh;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    width: 100%; 
+    height: auto;
+  
+
+}
+
+.home-image img{
+    position: relative;
+    bottom: 7px;
+    max-width: 200px;
+}
+
+.home-content{
+    /* max-width: 1vw; */
+    color:  rgb(146, 213, 237);;
+    text-align: right;
+
+}
+
+.home-content h1 {
+    font-size: 55px;
+    line-height: 1.2;
+     
+}
+
+.home-content h3 {
+    font-size: 40px;
+    color: rgb(146, 213, 237);
+    -webkit-text-stroke: .5px #fff;
+}
+
+.home-sci{
+    margin: 25px 0 40px;
+}
+
+.home-sci a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(146, 213, 237);
+    text-decoration: none;
+    margin-left: 12px;
+    transition: .5s;
+}
+
+.home-sci a:hover{
+    background: rgb(57, 78, 104);
+    color: rgb(146, 213, 237);
+    border-color: rgb(146, 213, 237);
+    box-shadow: 0 0 10px rgb(146, 213, 237);
+}
+
+.About-page{
+    height: 100vh;
+    /*background: black;*/
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.About-text h1{
+    text-align: left;
+    text-decoration: none;
+    font-size: 4vw;
+    color: #fff;
+}
+
+.About-text h2{
+    text-align: left;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+}
+
+.About-text h3{
+    text-align: left;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+}
+
+.About-text h4{
+    text-align: left;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+}
+
+.Certificate-page{
+    height: 100vh;
+    /* background: black; */
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+
+}
+
+.Certificate-page h1{
+    font-size: 50px;
+    color: #fff;
+    align-items: center;
+    
+}
+
+.Certificate-content{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    padding-left: 200px;
+}
+  
+.Contact{
+    height: 100vh;
+    /*background: black;*/
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.Contact-text{
+    font-size: 50px;
+    color: #fff;
+    align-items: center;
+}
+
+.facebook_text{
+    font-size: 30px;
+    color: #fff;
+}
+
+.instragram_text{
+    font-size: 30px;
+    color: #fff;
+}
+

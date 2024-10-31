@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #ft_list {
+            margin: 20px auto;
+            width: 300px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .todo {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="ft_list">
+        <!-- TO-DO items will be added here -->
+    </div>
+    <button onclick="createTodo()">New</button>
+
+    <script>
+        // Load and display saved TO-DOs from cookies
+        window.addEventListener('load', function() {
+            loadAndDisplayTodos();
+        });
+
+        function createTodo() {
+            const task = prompt("Enter a new TO DO:");
+            if (task !== null && task.trim() !== "") {
+                addTodoToDOM(task);
+                saveTodosToCookies();
+            }
+        }
+
+        function addTodoToDOM(task) {
+            const todoList = document.getElementById('ft_list');
+            const todoItem = document.createElement('div');
+            todoItem.classList.add('todo');
+            todoItem.textContent = task;
+            todoItem.onclick = function() {
+                if (confirm("Do you want to remove this TO DO?")) {
+                    todoList.removeChild(todoItem);
+                    saveTodosToCookies();
+                }
+            };
+            todoList.insertBefore(todoItem, todoList.firstChild);
+        }
+
+        function saveTodosToCookies() {
+            const todoList = document.getElementById('ft_list');
+            const todos = Array.from(todoList.getElementsByClassName('todo')).map(todo => todo.textContent);
+            document.cookie = "todos=" + JSON.stringify(todos);
+        }
+
+        function loadAndDisplayTodos() {
+            const cookies = document.cookie.split(';');
+            for (const cookie of cookies) {
+                const parts = cookie.split('=');
+                if (parts[0].trim() === "todos") {
+                    const todos = JSON.parse(parts[1]);
+                    for (const todo of todos) {
+                        addTodoToDOM(todo);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+<div id="ft_list">
+    <!-- TO-DO items will be added here -->
+</div>
+<button onclick="createTodo()">New</button>
+
+<script>
+    // Load and display saved TO-DOs from cookies
+    window.addEventListener('load', function() {
+        loadAndDisplayTodos();
+    });
+
+    function createTodo() {
+        const task = prompt("Enter a new TO DO:");
+        if (task !== null && task.trim() !== "") {
+            addTodoToDOM(task);
+            saveTodosToCookies();
+        }
+    }
+
+    function addTodoToDOM(task) {
+        const todoList = document.getElementById('ft_list');
+        const todoItem = document.createElement('div');
+        todoItem.classList.add('todo');
+        todoItem.textContent = task;
+        todoItem.onclick = function() {
+            if (confirm("Do you want to remove this TO DO?")) {
+                todoList.removeChild(todoItem);
+                saveTodosToCookies();
+            }
+        };
+        todoList.insertBefore(todoItem, todoList.firstChild);
+    }
+
+    function saveTodosToCookies() {
+        const todoList = document.getElementById('ft_list');
+        const todos = Array.from(todoList.getElementsByClassName('todo')).map(todo => todo.textContent);
+        document.cookie = "todos=" + JSON.stringify(todos);
+    }
+
+    function loadAndDisplayTodos() {
+        const cookies = document.cookie.split(';');
+        for (const cookie of cookies) {
+            const parts = cookie.split('=');
+            if (parts[0].trim() === "todos") {
+                const todos = JSON.parse(parts[1]);
+                for (const todo of todos) {
+                    addTodoToDOM(todo);
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
